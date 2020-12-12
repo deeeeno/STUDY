@@ -102,13 +102,15 @@ int VirusAttack() {
       que.pop();
 
       for (int dir = 0; dir < 4; dir++) {
-         if (virus_x + dx[dir] < 0 || virus_x + dx[dir] >= N || virus_y + dy[dir] < 0 || virus_y + dy[dir] >= M) continue;
+            int movx = virus_x + dx[dir];
+            int movy = virus_y + dy[dir]
+            if (movx < 0 || movx >= N || movy < 0 || movy >= M) continue;
 
-         if (map[ virus_x + dx[dir] ][ virus_y + dy[dir] ] == 0 && !visit[ virus_x + dx[dir] ][ virus_y + dy[dir] ]) {
-			que.push({ virus_x + dx[dir], virus_y + dy[dir] });
-            visit[virus_x + dx[dir]][virus_y + dy[dir]] = true;
-            _2count += 1;
-         }
+            if (map[movx][movy] == 0 && !visit[movx][movy]) {
+                que.push({ movx, movy });
+                visit[movx][movy] = true;
+                _2count += 1;
+            }
       }
    }
 
