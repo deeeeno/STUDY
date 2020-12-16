@@ -5,7 +5,7 @@ Disjoint-Set 알고리즘은 다수의 노드들 중 연결된 노드를 찾거�
 
 각 원소에 대해서 연결된 관계를 생각해보면 아래의 표와 같다.
 
-![qsort and pivot](/Algorithms/Study/resource/disjointset1.PNG)
+![qsort and pivot](/Algorithms/Study/resource/disjointset2.PNG)
 
 이 노드들에 대해서 연결된 노드들끼리 그룹을 지어준다고 생각해보자. 가령, 그룹 넘버를 연결 관계 중 가장 작은 노드의 번호라고 한다면.... (1,2,3,4)번은 1번 그룹, (5,6,7)번은 5번 그룹이라고 생각해보자. 그럼 3번 노드는 2번노드에 연결 되어있고, 2번은 1번에 연결되어있고,... 이 모든걸 다 고려해야 하는 것이다....!!
 
