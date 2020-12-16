@@ -1,9 +1,11 @@
 # QuickSort
 정렬 알고리즘 중 O(NlogN)의 평균속도를 가지는 Quick Sort에 대해서 알아보자.
 퀵소트는 정렬의 기준이 되는 값인 pivot값을 가지고 pivot을 중심으로 왼쪽, 오른쪽이 정렬의 기준에 맞게 값이 존재한다는걸 목표로 sorting하는 알고리즘이다. 오름차순을 예시로 아래의 그림과 같은 모습이 되어야 한다.
+
 ![qsort and pivot](/Algorithms/Study/resource/qsort1.PNG)
 
 이 구조를 만들기 위해서 알고리즘이 진행되는 flow는 아래와 같다.
+
 ![qsort and pivot](/Algorithms/Study/resource/qsort2.PNG)
 
 pivot이 될 값은 가장 좌측의 data로 설정하고, data를 탐색할 left, right값을 양 끝 index로 설정한다. 우리는 오름차순의 quick sort를 확인할 것이므로, left index에 대한 값은 pivot보다 작거나 같게, right index에 대한 값은 pivot보다 커야한다.
