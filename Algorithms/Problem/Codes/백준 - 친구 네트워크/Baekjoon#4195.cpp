@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define MAX_F	200001
-#define MAX_HASH_SIZE 20000
+#define MAX_HASH_SIZE 200000  //Recommended..
 #define salloc() &hnodes[sidx++]
 
 #include <iostream>
