@@ -7,7 +7,7 @@
 
 ### 처음결과
 `Memory(19164kb)`  
-`Runtime(272ms)`  
+`Runtime(272ms) -> Runtime(76ms)`  
 
 #### 성공 / 실패
 - 성공(but need to fix!!!)
@@ -52,3 +52,6 @@ network[j] = i;  // 나는 인덱스가 작은놈으로 모이게 할꺼야
 HowManyFriend[i] += HowManyFriend[j];
 HowManyFriend[j] = 1; //이놈
 ```
+
+# 고찰의 고찰
+Hash Table을 사용하여 러닝타임을 최대한 줄임. Hash Table에 대해서는 따로 정리할 예정!
