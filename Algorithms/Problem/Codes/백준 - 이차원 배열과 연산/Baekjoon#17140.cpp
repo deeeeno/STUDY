@@ -30,7 +30,7 @@ void Function() {
 			scanf("%d", &map[i][j]);
 		}
 	}
-	for (int step = 0; step <= 100; step++) {
+	for (int step = 0; step <= MAX; step++) {
 		if (map[r - 1][c - 1] == k) {
 			result = step;
 			break;
@@ -72,7 +72,7 @@ void R() {
 			map[c][p++] = list[i].amount;
 		}
 		next_col_amount = (p > next_col_amount) ? p : next_col_amount;
-		if (next_col_amount > 100) next_col_amount = 100;
+		if (next_col_amount > MAX) next_col_amount = MAX;
 	}
 	col_amount = next_col_amount;
 }
@@ -103,7 +103,7 @@ void C() {
 			map[p++][r] = list[i].amount;
 		}
 		next_row_amount = (p > next_row_amount) ? p : next_row_amount;
-		if (next_row_amount > 100) next_row_amount = 100;
+		if (next_row_amount > MAX) next_row_amount = MAX;
 	}
 	row_amount = next_row_amount;
 }
