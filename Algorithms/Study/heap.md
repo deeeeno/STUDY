@@ -1,7 +1,7 @@
 # HEAP
 힙(heap)은 완전 이진 트리의 하나로 부모노드와 자식노드 간의 정렬 기준이 명확한 자료구조이다. 우선순위 큐라고도 불리우며, min heap, max heap이 있다. heap의 자료구조 이론은 매우 간단하다. 모든 노드에 대해서 부모, 자식 노드의 정렬이 명확하다는 것!! 아래 그림을 보면 더 이해가 쉬울 것이다.
 
-![heap](/Algorithms/Study/resource/heap.PNG)
+![heap](/Algorithms/Study/resource/heap.png)
 
 이를 코드로 구현하기 위해선 두개의 전재 조건이 필요하다.
 
@@ -19,6 +19,9 @@
 코드로보면 아래와 같다.
 ```
 void insert_min_heap(int ele) {
+    if(min_heap.heapSize == MAX){
+        return;
+    }
     int i = ++(min_heap.heapSize);
     //처음 들어온놈 i=1인 경우 걍 데이터 넣고 끝내
     min_heap.element[i] = ele;
@@ -47,6 +50,10 @@ void insert_min_heap(int ele) {
 
 ```
 int pop() {
+    if(min_heap.heapSize == 0){
+        return -1;
+    }
+    
     int rtn_value = min_heap.element[1];
     int i = 1;
     min_heap.element[1] = min_heap.element[min_heap.heapSize]; // 마지막 노드를 끌어올려
