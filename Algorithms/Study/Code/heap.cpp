@@ -31,6 +31,10 @@ MAX HEAP이니까 새롭게 들어온놈이 더 크면 부모와 swap
 //max heap은 큰놈부터 나오는 것이다.
 //insert의 경우 ehwkd
 void insert_max_heap(int ele) {
+    if(max_heap.heapSize == MAX){
+        return;
+    }
+    
     int i = ++(max_heap.heapSize);
     //처음 들어온놈 i=1인 경우 걍 데이터 넣고 끝내
     max_heap.element[i] = ele;
@@ -50,7 +54,7 @@ void insert_max_heap(int ele) {
     }
 }
 
-int push_max_heap() {
+int pop_max_heap() {
     int rtn_value = max_heap.element[1];
     int i = 1;
     max_heap.element[1] = max_heap.element[max_heap.heapSize]; // 마지막 노드를 끌어올려
@@ -74,6 +78,9 @@ int push_max_heap() {
 }
 
 void insert_min_heap(int ele) {
+    if(min_heap.heapSize == MAX){
+        return;
+    }
     int i = ++(min_heap.heapSize);
     //처음 들어온놈 i=1인 경우 걍 데이터 넣고 끝내
     min_heap.element[i] = ele;
@@ -94,7 +101,10 @@ void insert_min_heap(int ele) {
     }
 }
 
-int push_min_heap() {
+int pop_min_heap() {
+    if(min_heap.heapSize == 0){
+        return -1;
+    }
     int rtn_value = min_heap.element[1];
     int i = 1;
     min_heap.element[1] = min_heap.element[min_heap.heapSize]; // 마지막 노드를 끌어올려
@@ -127,12 +137,12 @@ int main()
     insert_max_heap(2);
     insert_max_heap(3);
 
-    printf("%d\n", push_max_heap());
-    printf("%d\n", push_max_heap());
-    printf("%d\n", push_max_heap());
-    printf("%d\n", push_max_heap());
-    printf("%d\n", push_max_heap());
-    printf("%d\n\n\n", push_max_heap());
+    printf("%d\n", pop_max_heap());
+    printf("%d\n", pop_max_heap());
+    printf("%d\n", pop_max_heap());
+    printf("%d\n", pop_max_heap());
+    printf("%d\n", pop_max_heap());
+    printf("%d\n\n\n", pop_max_heap());
 
     insert_min_heap(5);
     insert_min_heap(7);
@@ -141,10 +151,10 @@ int main()
     insert_min_heap(2);
     insert_min_heap(3);
 
-    printf("%d\n", push_min_heap());
-    printf("%d\n", push_min_heap());
-    printf("%d\n", push_min_heap());
-    printf("%d\n", push_min_heap());
-    printf("%d\n", push_min_heap());
-    printf("%d\n", push_min_heap());
+    printf("%d\n", pop_min_heap());
+    printf("%d\n", pop_min_heap());
+    printf("%d\n", pop_min_heap());
+    printf("%d\n", pop_min_heap());
+    printf("%d\n", pop_min_heap());
+    printf("%d\n", pop_min_heap());
 }
