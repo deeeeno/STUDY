@@ -1,8 +1,4 @@
-function hello(str){
-    console.log('---------------');
-    console.log('hi! ' + str);
-    console.log('---------------');
-}
-
-
-hello('dino')
+import './test';
+func1(1,2);
+func2();
+promiseFunc(1);
