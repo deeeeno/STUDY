@@ -13,13 +13,22 @@ module.exports = {
         rules:[
             {
                 test: /\.m?js$/i,
-                exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, "src")
+                  ],
+                exclude: [
+                    path.resolve(__dirname, "node_modules")
+                ],
                 use: {
                     loader:'babel-loader',
                     options: {
                       presets: ['@babel/preset-env']
                     }
                   }
+            },
+            {
+                test: /\.css$/,
+                use:["style-loader","css-loader"]
             },
         ]
     },
