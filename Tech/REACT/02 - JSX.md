@@ -1,5 +1,5 @@
 # REACT - 02. JSX
-`const element = <h1>Hello, world!</h1>;`
+`const element = <h1>Hello, world!</h1>;`   
 JSX는 자바스크립트의 확장 문법이다.  리액트로 개발할 때 사용되므로 공식적인 자바스크립트의 문법은 아니다. react의 공식 문서의 내용으로 공부해보자!   
 테스트 시뮬레이터는 https://codepen.io/pen?&editors=0010 이걸 사용하였다.
 먼저 JSX를 할당하는 법에 대해서 알아보자!
