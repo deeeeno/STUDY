@@ -35,5 +35,5 @@ console.log(c); //1
 c = 3;  //Uncaught TypeError: Assignment to constant variable.
 console.log(c);
 </code></pre>
-나는 야메로 배워서 var을 쓰는데, let을 쓰도록 해야겠다..!
+나는 야메로 배워서 var을 쓰는데, let을 쓰도록 해야겠다..! -> 기본적으로 변수 선언할때 const를 디폴트로 쓰고 변경의 필요성을 느끼면 그때 let을 씀, var은 아직까지 써 본 기억이 없음 ㅋㅋㅋ
 
