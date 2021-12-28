@@ -14,5 +14,8 @@ Pipeline : Kafka
 	2. 카프카에 대해 정리 확실히 하기
 	3. React 익히기
 ### Reference
-[LINE에서 Kafka를 사용하는 방법 - 1편 - LINE ENGINEERING](https://engineering.linecorp.com/ko/blog/how-to-use-kafka-in-line-1/)
+[LINE에서 Kafka를 사용하는 방법 - 1편 - LINE ENGINEERING](https://engineering.linecorp.com/ko/blog/how-to-use-kafka-in-line-1/)   
 [kafka-node](https://github.com/SOHU-Co/kafka-node)
+
+### STEP
+* Day1) nodejs를 사용해서 Kafka REST producer 초안 만들기 및 consumer 초안 만들기
