@@ -15,3 +15,4 @@ Pipeline : Kafka
 	3. React 익히기
 ### Reference
 [LINE에서 Kafka를 사용하는 방법 - 1편 - LINE ENGINEERING](https://engineering.linecorp.com/ko/blog/how-to-use-kafka-in-line-1/)
+[kafka-node](https://github.com/SOHU-Co/kafka-node)
