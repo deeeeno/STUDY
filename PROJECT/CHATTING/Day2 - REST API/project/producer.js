@@ -47,7 +47,6 @@ module.exports = {
     },
     sendMessages: async function(topicID,message){
         let result = await send(topicID,message);
-        console.log(result);
         return result;
     }
 };

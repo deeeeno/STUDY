@@ -7,15 +7,6 @@ const port = 3000;
 const { User,Chat,Message,Response } = require('./data');
 const {createTopic,sendMessages} = require('./producer');
 
-let testU = new User('a','b');
-console.log(testU);
-let testC = new Chat();
-console.log(testC);
-let testM = new Message();
-console.log(testM);
-let testR = new Response();
-console.log(testR);
-
 //얘는 디비 정보를 조회해야 하는군. 현재는 디비가 없으므로 리스트에서 조사하는걸로
 const topic_list = [];
 //GET /topics/{topicID}
@@ -38,7 +29,6 @@ app.post('/topics/:id',(req,res)=>{
     console.log(ret);
     if(ret == undefined){
         let new_topic = new Chat(req.params.id, req.body.name,req.body.masterID,req.params.id);
-        console.log(new_topic);
         topic_list.push(new_topic);
         res.send(new Response('success',new_topic));
     }else{
@@ -55,10 +45,6 @@ app.post('/topics/:id/messages',(req,res)=>{
     let msg = new Message(req.body.sender,req.body.message);
     let send_result = sendMessages(req.params.id,JSON.stringify(msg));
     sendMessages(req.params.id,JSON.stringify(msg)).then((result)=>{
-        console.log('done');
-        console.log('-----');
-        console.log(result);
-        console.log('-----');
         if(result.status == 'error'){
             res.send(new Response('error',result.data));
         }else{
