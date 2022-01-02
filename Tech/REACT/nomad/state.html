@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id='root'></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const App = ()=>{
+            //React.useState(value,setter)
+            //value로 state를 설정해줘. 반환값은 [초기값,f]인데 f는 스테이트의 모디파이어
+            let [data,setData] = React.useState(0);
+            //data -> state의 초기값
+            //modifier -> 인자로 하나의 값(스테이트)을 받음 그리고 rerender를 일으켜
+            function up(){
+                //state를 바꾸는 첫 번째 방법. useState에서 나온 setter를 통해서 바꾸는데 값을 넣는 방법.
+                //setData(data+1);
+                //두번째는 콜백함수를 사용한 방법. 콜백함수의 인자는 현재값이기 때문에 현재값에서 연산한다는 것을 보장한다.
+                //현재값에 대한 연산이 필요한 경우엔 콜백을 써야겠다
+                setData((current)=>{
+                    console.log(`current : ${current}`)
+                    return current + 1
+                });
+            }
+            //React는 데이터가 바뀔때마다 리렌더링을 진행
+            //하지만 바뀌는 부분믄 바꿈
+            return (
+                <div>
+                    <h3> click : {data} </h3>
+                    <button onClick={up}>click!</button>
+                </div>
+            )
+        }
+        
+        const MinuteHourConverter = ()=>{
+            //state가 여러개일 수도 있다.
+            const [amount,setAmount] = React.useState();
+            const [flipped, setFlipped] = React.useState(false);
+            const onChangeM = (event)=>{
+                //event -> react에서 만드는 이벤트 객체
+                setAmount(event.target.value);
+            }
+            const onChangeH = (event)=>{
+                setAmount(event.target.value*60)
+            }
+            const RESET = ()=>{
+                setAmount(0);
+                setFlipped(false);
+            }
+            const onFlip = ()=>{
+                setFlipped((current)=>!current);
+            }
+            return (
+                <div>
+                    <h2>Minute&Hour Converter</h2>
+                    <div>
+                        <label htmlFor="minute">Minutes</label>
+                        <input value={!flipped ? amount : amount*60} id="minute" placeholder="Minutes" type="number" 
+                        onChange={onChangeM}
+                        disabled={flipped}/>
+                    </div>
+                    <h3>Target Amount : {amount}</h3>
+                    <div>
+                        <label htmlFor="hour">Hours</label>
+                        <input id="hour" placeholder="Hours" type="number" 
+                        value={flipped ? amount : Math.floor(amount/60)} onChange={onChangeH}
+                        disabled={!flipped}/>
+                    </div>
+                    <button onClick={RESET}>RESET</button>
+                    <button onClick={onFlip}>Flip!</button>
+                </div>
+            )
+        }
+        const MeterConverter = ()=>{
+            //state가 여러개일 수도 있다.
+            const [amount,setAmount] = React.useState();
+            const [flipped, setFlipped] = React.useState(false);
+            const onChangeM = (event)=>{
+                //event -> react에서 만드는 이벤트 객체
+                setAmount(event.target.value);
+            }
+            const onChangeH = (event)=>{
+                setAmount(event.target.value*1000)
+            }
+            const RESET = ()=>{
+                setAmount(0);
+                setFlipped(false);
+            }
+            const onFlip = ()=>{
+                setFlipped((current)=>!current);
+            }
+            return (
+                <div>
+                    <h2>Meter&Kilo Converter</h2>
+                    <div>
+                        <label htmlFor="minute">Meter</label>
+                        <input value={!flipped ? amount : amount*60} id="minute" placeholder="Meter" type="number" 
+                        onChange={onChangeM}
+                        disabled={flipped}/>
+                    </div>
+                    <h3>Target Amount : {amount}</h3>
+                    <div>
+                        <label htmlFor="hour">Kilos</label>
+                        <input id="hour" placeholder="Kilos" type="number" 
+                        value={flipped ? amount : Math.floor(amount/1000)} onChange={onChangeH}
+                        disabled={!flipped}/>
+                    </div>
+                    <button onClick={RESET}>RESET</button>
+                    <button onClick={onFlip}>Flip!</button>
+                </div>
+            )
+        }
+        const Converters = ()=>{
+            const [format,setFormat] = React.useState('minute');
+
+            const onSelect = (event)=>{
+                console.log(event.target.value);
+                setFormat(event.target.value);
+            }
+            return(
+                <div>
+                    <h3>Converters</h3>
+                    <select value={format}onChange={onSelect}>
+                        <option value="minute">minute</option>
+                        <option value="meter">meter</option>
+                    </select>
+                    {format == 'minute' ? <MinuteHourConverter/> : null}
+                    {format == 'meter' ? <MeterConverter/> : null}
+                </div>
+            )
+        }
+        const root = document.querySelector('#root');
+        ReactDOM.render(<Converters/>,root);
+    </script>
+</html>
