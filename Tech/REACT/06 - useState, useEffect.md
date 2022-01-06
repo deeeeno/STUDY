@@ -47,4 +47,16 @@ function App() {
 * state list : 이 목록에 있는 state가 변할 떄 callback function을 실행   
 
 useEffect함수 내 call back function은 컴포넌트가 처음 만들어 지는 과정엔 무조건 실행이 된다. 그럼? State list를 빈 값으로 두면 처음 생성될 때만 실행이 되게 트릭을 둘 수 있겠군!!   
+useEffect의 콜백 함수엔 특별한 기능이 있다. 바로 **cleanup** 함수를 말하는데, useEffect의 callback function이 함수를 return하게 되면, 컴포넌트가 없어질 때 해당 함수가 실행이 된다.
+```
+function App(){
+  useEffect(function HI(){
+    console.log("HI");
+    return function BYE(){  //App Component가 없어질 때 실행된다.
+      console.log("BYE");
+    }
+  },[]);
+  return <div></div>;
+}
+```
 함수형 컴포넌트가 클래스형보다 훨씬 쓰기 편한 것 같다..
