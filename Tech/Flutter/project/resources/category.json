@@ -1,0 +1,35 @@
+{
+    "categories": [
+      {
+        "name": "정치",
+        "code": "01",
+        "imageUrl": "https://www1.president.go.kr/images/cheongwadae/pic_introduction_01_01.jpg"
+      },
+      {
+        "name": "경제",
+        "code": "02",
+        "imageUrl": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "name": "사회",
+        "code": "03",
+        "imageUrl": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      },
+      {
+        "name": "문화",
+        "code": "04",
+        "imageUrl": "https://images.unsplash.com/photo-1557018250-c58928b114a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"
+      },
+      {
+        "name": "스포츠",
+        "code": "05",
+        "imageUrl": "https://images.unsplash.com/photo-1502904550040-7534597429ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1549&q=80"
+      },
+      {
+        "name": "IT/과학",
+        "code": "08",
+        "imageUrl": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+      }
+    ]
+  }
+  
