@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-text="message"></div>
+      <div v-if="test" v-text="message_test"></div>
+      <input v-model="message"/>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "Hello Vue.js!",
+          message_test: 'test',
+          test:false
+        },
+        watch: {
+          message : function(val){
+            console.log(val);
+          }
+        },
+        beforeCreate: function(){
+            console.log('beforeCreate Hook');
+            console.log('can see data? -------')
+            console.log(this.$data);
+            console.log('-----------');
+            console.log('can see DOM(ele)? --------');
+            console.log(this.$el);
+            console.log('------------');
+        },
+        created: function(){
+            console.log('created Hook');
+            console.log('can see data? -------')
+            console.log(this.$data);
+            console.log('-----------');
+            console.log('can see DOM(ele)? --------');
+            console.log(this.$el);
+            console.log('------------');
+        },
+        beforeMount: function(){
+            console.log('beforeMount Hook');
+            console.log('can see data? -------')
+            console.log(this.$data);
+            console.log('-----------');
+            console.log('can see DOM(ele)? --------');
+            console.log(this.$el.innerHTML);
+            console.log('------------');
+        },
+        mounted: function(){
+            console.log('mounted Hook');
+            console.log('can see data? -------')
+            console.log(this.$data);
+            console.log('-----------');
+            console.log('can see DOM(ele)? --------');
+            console.log(this.$el.innerHTML);
+            console.log('------------');
+        },
+        beforeUpdate: function(){
+            console.log('beforeUpdate Hook');
+            console.log('can see data? -------')
+            console.log(this.$data);
+            console.log('-----------');
+            console.log('can see DOM(ele)? --------');
+            console.log(this.$el);
+            console.log(this.$el.innerHTML);
+            console.log('------------');
+        },
+        updated: function(){
+            console.log('updated Hook');
+            console.log('can see data? -------')
+            console.log(this.$data);
+            console.log('-----------');
+            console.log('can see DOM(ele)? --------');
+            console.log(this.$el);
+            console.log(this.$el.innerHTML);
+            console.log('------------');
+        }
+      });
+    </script>
+  </body>
+</html>
