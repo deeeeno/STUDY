@@ -36,6 +36,15 @@ var b = function(){
 }
 ```
 
+### IIFE(Immediately Invoked Function Expressions)
+IIFE는 즉시 호출 함수 표현식이라고 한다. 위에 다뤘던 함수 표현식, 선언식과 관련이 있는데, IIFE는 함수 선언식을 표현식으로 만들어 바로 실행시켜버리는 것을 말한다. 기본 형태는 다음과 같다.
+```
+(function(){
+	///code
+})();
+```
+일반적인 함수 선언식을 괄호로 감싸 실행시키는걸 볼 수 있다. 물론 괄호에 쌓인 함수는 함수 객체가 되므로 call, bind, apply를 사용할 수 있다.    
+
 ### Arrow Function
 Arrow Function은 ES6의 문법으로 간단한 syntax를 사용한 함수 표현식이다. 말 그대로 화살표를 사용한 방식인데 아래와 같이 사용한다.
 ```
