@@ -1,10 +1,14 @@
-type Person{
-id:Int!
-name: String!
-age:Int!
-gender:String!
+type Movie{
+    id:Int!
+    title:String!
+    rating:Float!
+    summary:String!
+    language:String!
+    medium_cover_image:String!
 }
+
 type Query{
-    people: [Person]!
-    person(id: Int!): Person
+    movies(limit:Int!,rate:Float!): [Movie]!
+    movie(id:Int!):Movie
+    suggestions(id:Int!):[Movie]
 }

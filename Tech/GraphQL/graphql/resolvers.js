@@ -1,10 +1,9 @@
-import {people,getById} from './db';
-
-console.log(people);
+import {getMovies,getMovieById,getSuggestionsById} from './db';
 const resolvers = {
     Query:{
-        people:()=>people,
-        person:(_,{id})=>getById(id)
-    }
+        movies:(_,{limit,rate})=>getMovies(limit,rate),
+        movie:(_,{id})=>getMovieById(id),
+        suggestions:(_,{id})=>getSuggestionsById(id),
+    },
 }
 export default resolvers
