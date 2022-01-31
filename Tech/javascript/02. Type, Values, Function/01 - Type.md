@@ -34,6 +34,21 @@ const c = 1;
 console.log(c); //1
 c = 3;  //Uncaught TypeError: Assignment to constant variable.
 console.log(c);
+//하지만 객체인 경우 const로 선언된 객체임에도 내부 key에 대한 CRUD는 가능하다.
+const obj = {'a':1};
+obj['c'] = 2;   //obj -> {'a':1, 'c':2}
+delete obj['c'];   //true
 </code></pre>
+자바스크립트 변수 선언법에 대해서 크게 두가지 의견이 존재한다. 마티아스 바인스와 카일 심슨이란 아저씨의 의견인데 바인스의 의견은 아래와 같다.
+```
+기본적으로 const를 사용하되, 재할당이 필요한 경우 let으로 바꾸자
+es6에선 var 절대 쓰지 말자.
+```
+카일 심슨의 의견은 다음과 같다.
+```
+여러 큰 스코프에서 공유가 필요한 경우 var를 쓰자.
+작은 스코프에선 let을 쓰자.
+코드작성이 좀 진행 된 후에 let, const로 리펙토링 하자.
+```
 나는 야메로 배워서 var을 쓰는데, let을 쓰도록 해야겠다..! -> 기본적으로 변수 선언할때 const를 디폴트로 쓰고 변경의 필요성을 느끼면 그때 let을 씀, var은 아직까지 써 본 기억이 없음 ㅋㅋㅋ
 
