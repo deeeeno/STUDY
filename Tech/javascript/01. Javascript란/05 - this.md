@@ -84,3 +84,40 @@ html에서 이벤트 핸들러에 사용된 this에도 차이점이 존재한다
   </body>
 </html>
 ```
+
+### this in Arrow Function
+laeifjlaiwejflija
+함수 선언식에서 this는 호출하는 주체가 저장이 된다고 앞에서 얘기하였다. ES6에서는 함수 표현식으로 화살표 함수를 사용하곤 한다.
+```
+const hi = (hi)=>console.log(`hello ${hi}`);
+```
+이 화살표 함수에서는 this가 조금 상이한데, 결론부터 말하자면 화살표 함수에서의 this는 실행 주체가 아닌 상위 스코프가 저장이 된다. 예시를 살펴보자.
+```
+const div = document.querySelector('.div');
+div.addEventListener('click',function(event){
+  this.classList.toggle('active');    //함수 실행 주체인 div가 this로 됨.
+  setTimeout(function(){
+    this.classList.toggle('active');  //error!
+  },500);
+})
+```
+왜 두번 째 this는 오류가 나타날까? 바로 실행시키는 주체가 window 객채이기 때문이다...! 그렇다면 위 코드가 정상 동작하도록 하려면 어떻게 해야 할까? 정답은 화살표 함수에 있다. 화살표함수의 this는 상위 스코프라고 했다. 그럼 setTimeout의 상위 스코프인 div로 주면 되는거니까 아래처럼 수정하면 동작한다.
+```
+const div = document.querySelector('.div');
+div.addEventListener('click',function(event){
+  this.classList.toggle('active');   
+  setTimeout(()=>{
+    this.classList.toggle('active');
+  },500);
+})
+```
+다음엔 아래 예시를 node 커맨드를 통한 터미널에서 한줄한줄 써보자.
+```
+> this
+> var a = 1;
+> const person = {a:2,grow:()=>{this.a+=1}};
+> person.grow();
+> this.a          //2
+> person.a        //2
+```
+위 예시를 보면 person.grow 함수를 실행시키는 스코프는 node 스코프이므로 node객체의 a가 1더해짐을 알 수 있다.
