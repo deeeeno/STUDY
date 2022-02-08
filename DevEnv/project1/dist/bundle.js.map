@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":"mBAEAA,QAAQC,IAAI,MAGZD,QAAQC,IAAIC,I","sources":["webpack://project1/./src/js/index.js"],"sourcesContent":["import '../css/style.css';\nimport '../css/a.css';\nconsole.log('hi');\nlet a = 1;\nlet b = 2;\nconsole.log(a+b);"],"names":["console","log","a"],"sourceRoot":""}
