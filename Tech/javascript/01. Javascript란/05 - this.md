@@ -63,8 +63,31 @@ print.apply(obj,[1,2,3,4]); //deeeeno 1 2 3 4 return value : 10
 
 var bindFunc = print.bind(obj,1,2,3,4); //deeeeno 1 2 3 4 return value : 10
 ```
-Call, bind,apply의 첫 번째 인자는 this에 사용될 객체이다. 즉, 객체를 주입하면 해당 객체가 this가 되어버린다.
+Call, bind,apply의 첫 번째 인자는 this에 사용될 객체이다. 즉, 객체를 주입하면 해당 객체가 this가 되어버린다.   
+3가지의 차이점을 보자면 객체, 파라미터 전달법의 다름도 있지만 **실행**의 다름도 존재한다. call,apply의 경우 함수가 실행이 되지만 bind는 새로운 함수가 생겨나게 된다. 이런 경우는 어떻게 사용할까?   
+```
+class Handler{
+#inputGroupEl = ~~~
+#keyboardEl = ~~~
 
+document.addEventListener("keydown", this.#onKeyDown);
+#onKeyDown(event) {
+  this.#inputGroupEl.classList.toggle(
+    "error",
+    /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(event.key)
+  );
+
+  this.#keyboardEl
+    .querySelector(`[data-code=${event.code}]`)
+    ?.classList.add("active");
+}
+}
+```
+이렇게 이벤트 핸들러 함수가 존재한다고 보자. 핸들러 내에서 사용하는 inputGroupEl, keyboardEl은 클래스 내의 변수이고 코드 상에선 문제가 없지만 실행에 있어선 문제가 나타난다. 브라우저에서 호출이 되는 순간 this는 window 객체가 된다. window객체엔 두 개의 변수가 존재하지 않는다. 이런 경우 bind를 붙여 새로운 함수를 만들어 주는 것이다. 
+```
+document.addEventListener("keydown", this.#onKeyDown.bind(this));
+```
+그럼 함수의 this객체는 클래스로 바인딩이 되기에 정상적으로 동작하는 것을 알 수 있다. 
 ### Event Handler
 html에서 이벤트 핸들러에 사용된 this에도 차이점이 존재한다. 먼저 설명하면 인라인으로 입력한 경우와 이벤트 핸들러로 등록하는 경우에 차이가 있다.
 ```
