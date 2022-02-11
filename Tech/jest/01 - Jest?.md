@@ -52,4 +52,4 @@ $ tree -I node_modules
 ```
 test 코드들은 test경로에 test파일들을 모아뒀다. test라는 디렉토리 하위 코드들은 알아서 인식되나 싶었지만 되지 않았다. 이제 package.json에서 설정한 스크립트인 test를 통해 실행해보자. `npm test`   
 콘솔에 그럼 실패한 경우에 대해서 친절하게 보여준다.   
-![jest result](resources\result.JPG)
+![jest result](Tech/jest/resources/result.JPG)

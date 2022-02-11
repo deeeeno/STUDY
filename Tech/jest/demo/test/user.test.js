@@ -29,6 +29,8 @@ test('userService find test',()=>{
 });
 
 describe('userService find relay test',()=>{
+    beforeAll(()=>console.log('find relay describe beforeAll'));
+    afterAll(()=>console.log('find relay describe afterAll'));
     beforeEach(()=>console.log('find relay describe beforeEach'));
     afterEach(()=>console.log('find relay describe afterEach'));
     test('find id 1',()=>{
