@@ -5,7 +5,7 @@ test('테스트 명', ()=>{
     expect(received data).{Matcher}(expected data);
 });
 ```
-Matcher는 received data와 expected data를 맞춰보는 메소드이고, 여러가지 종류가 있다. 그 중 자주 쓰이는 것들을 알아보자.(사용된 예시는 [이 코드](Tech/jest/demo/test/matcher.test.js)에 있다.)   
+Matcher는 received data와 expected data를 맞춰보는 메소드이고, 여러가지 종류가 있다. 그 중 자주 쓰이는 것들을 알아보자.(사용된 예시는 [이 코드](demo/test/matcher.test.js)에 있다.)   
 ### toEqual
 이름에서 알다시피 둘의 값, 타입이 같은지 테스트하는 메소드이다. 값과 타입이 같은 경우 test에 통과하게 된다.
 ```
