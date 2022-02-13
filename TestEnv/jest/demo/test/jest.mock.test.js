@@ -12,4 +12,6 @@ test('jest.mock을 이용한 mocking',()=>{
 
     expect(mailService.sendMail).toBeCalledTimes(1);
     expect(mailService.sendMail).toBeCalledWith(user.email,user.name+'님이 가입하였습니다.');
+    expect(mailService.sendSMS).toBeCalledTimes(1);
+    expect(mailService.sendSMS).toBeCalledWith(user.email,user.name+'님이 가입하였습니다.');
 })

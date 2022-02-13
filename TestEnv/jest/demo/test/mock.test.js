@@ -38,6 +38,7 @@ describe('jest mock -> mock.fn',()=>{
         mockFn(2);
         mockFn({1:2});
         mockFn([1,2]);
+        expect(mockFn).toBeCalledTimes(4);
         expect(mockFn).toBeCalledWith(1);
         expect(mockFn).toBeCalledWith(2);
         expect(mockFn).toBeCalledWith({1:2});

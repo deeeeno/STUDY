@@ -14,6 +14,7 @@ export default {
         users.push(...list);
         list.forEach((user)=>{
             mailService.sendMail(user.email,`${user.name}님이 가입하였습니다.`);
+            mailService.sendSMS(user.email,`${user.name}님이 가입하였습니다.`);
         });
     },
     destroy(id){
