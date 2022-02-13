@@ -2,7 +2,6 @@ import userService from '../src/users';
 import mailService from '../src/mail';
 
 jest.mock("../src/mail");       //jest.fn, jest.spyOn과 다르게 모듈 자체에 걸어버리기
-
 test('jest.mock을 이용한 mocking',()=>{
    
     const user =  {
