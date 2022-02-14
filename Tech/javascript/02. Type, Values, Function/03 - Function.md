@@ -62,27 +62,43 @@ const multiply = (x,y) => x*y;   //생략 가능!
 ```
 
 ### Parameter Defaults
-함수는 파라미터를 가질 수 있다. 만약 파라미터가 2개인데, 실행 할 때 하나만 넣으면 어떻게 될까?
+파라미터가 있는 함수를 파라미터 없이 실행시켜 보면, 각 파라미터엔 undefined가 나타날 것이다.
 ```
-test(1); // 1, undefined
+test(); // undefined, undefined
 function test(a,b){
 	console.log(a);
 	console.log(b);	
 }
 ```
-코드로 확인해본 결과 undefined가 되는 것을 알 수 있다. undefined로 되면, 코드가 에러가 나는 경우가 생길테인데.. 이를 방지하기 위해서 디폴트 값을 설정해줄 필요가 있다. 자바스크립트에선 매우 간단하다! 매개변수를 선언할 때 default값을 함께 할당해주면 된다.
+이런 경우 각 파라미터를 사용하는 연산에 오류가 나타날 수 있다. 그렇다면 아래 방식으로 기본값을 설정할 수 있을 것이다.
 ```
-test(1); // 1, 0
-function test(a,b=0){//b가 undefined가 될 시에 0으로 할당되도록 함.
+test();// 1,2
+function test(a,b){
+	if(typeof a === undefined) a = 1;
+	if(typeof b === undefined) b = 2;
 	console.log(a);
-	console.log(b);	
-}
-
-function test2(a,b=a*30){//default는 고정된 값이 아닌 수식을 할당할 수도 있다.
-	console.log(a);
-	console.log(b);	
+	console.log(b);
 }
 ```
+하지만, 변수 하나하나 이렇게 기본값을 설정하는 것은 굉장히 비효율적이다... ES6엔 이런 문제를 해결하고자 파라미터의 기본값을 아주 간편하게 설정해줄 수 있도록 마련되어있다.
+```
+test();
+function test(a=1,b=2){
+	console.log(a);
+	console.log(b);
+}
+```
+매우 간편하게 사용할 수 있다. 하지만! 이 문법에도 문제점은 존재하는 것이 있으니.. 만약 b만 할당해주고 싶다면? 나는 `test(3)`으로 쓰고 싶지만, 이렇게 쓰면 `a=3`이 될 것이다. 즉, `test(undefined,3)`으로 작성해주어야 하는데, 이는 사용에 불편함을 일으킬 수 있다. 이런 문제를 해결하기 위해 **디스트럭쳐링**을 사용할 수 있다.
+```
+test();
+test({a:3,b:4});
+test({b:5});
+function test({a=1,b=2}={}){
+	console.log(a);
+	console.log(b);
+}
+```
+여기서 중요한 부분은 `={}`을 빼먹으면 안된다는 것이다. 이걸 빼먹게 되면 TypeError가 나타난다.
 
 ### Arguments Object
 파라미터로 정의되진 않았지만, 실행할 때 입력한 모든 파라미터에 대해서 확인하는 방법이 없을까? 이럴 때 사용하는 것이 바로 Arguments Object이다. 특징은 dictionary라는 점이다. 비록 key값은 index이지만, 딕셔너리로 선언된 오브젝트이다.
