@@ -1,8 +1,6 @@
 # React - 06. useState, useEffect
 
-# 
-
-이전에 리액트 컴포넌트의 life cycle과 state에 대해서 알아보았다. 이번엔 state와 rendering에 대해서 자주 쓰이는 기능에 대해서 알아보자. 함수형 컴포넌트에 사용됨을 유의하자.
+이전에 리액트 컴포넌트의 life cycle과 state에 대해서 알아보았다. 이번엔 state와 rendering에 대해서 자주 쓰이는 Hook에 대해서 알아보자. 함수형 컴포넌트에 사용됨을 유의하자.
 
 ### useState
 말 그대로 state를 사용한다는 것이다. 예시를 보며 알아보자.   

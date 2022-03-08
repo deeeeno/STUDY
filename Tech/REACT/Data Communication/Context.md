@@ -4,6 +4,10 @@
 > context를 이용하먄 단계마다 일일이 props를 넘겨주지 않고도 컴포넌트 트리 전체에 데이터를 제공할 수 있습니다.   
 말 그대로 context를 이요하면 컴포넌트 트리 단계마다 넘겨주지 않고 값을 공유하도록 할 수 있다.
 
+### When we use?
+공식 문서에 따르면 Context는 react 컴포넌트 트리 안에서 전역적으로 데이터를 공유할 수 있도록 고안된 방법이라고 한다. 예를 들어 유저, 테마, 언어 등등의 전역적으로 사용되는 데이터들이 있다.
+### 주의사항
+Context의 경우 데이터의 사용처가 nested하게 퍼져있거나 property Drilling이 발생할 수 있는 경우 이를 해결할 수 있도록 설계된 데이터 전달소이다. 그렇기에 Context를 사용하게 되고 그 내부 데이터를 사용하는 컴포넌트의 경우 재사용에 어려움을 겪을 수 있다.
 ## Usage
 거두절미하고 사용법부터 알아보자! 우리가 사용하게 될 메소드는 react의 **createContext, useContext** 그리고 **Provider**이다.    
 `import {useContext, createContext} from 'react'`   
@@ -52,4 +56,3 @@ function Text(){
 }
 햔제 Text 컴포넌트를 감싸고 있는 Context Provider의 value는 App 컴포넌트의 state로 지정된 value와 modifier인 setValue이다. 이를 통해서 property를 거치지 않고 데이터를 공유하는 Context 사용법을 간단하게 알아보았다.
 ```
-### When we use?
