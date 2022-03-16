@@ -66,7 +66,7 @@ obj[Symbol.iterator] = function(){
         last : this.to,
         next(){
             return (this.current <= this.last) ?
-                {value:this.current++,done:false}:
+                {value:{index:this.current-1, number:this.current++},done:false}:
                 {done:true}
         }
     }
@@ -84,16 +84,16 @@ for(const value of obj){
 }
 
 /* console.log
-{ value: 1, done: false }
-{ value: 2, done: false }
-{ value: 3, done: false }
-{ value: 4, done: false }
-{ value: 5, done: false }
+{ value: { index: 0, number: 1 }, done: false }
+{ value: { index: 1, number: 2 }, done: false }
+{ value: { index: 2, number: 3 }, done: false }
+{ value: { index: 3, number: 4 }, done: false }
+{ value: { index: 4, number: 5 }, done: false }
 { done: true }
-1
-2
-3
-4
-5
+{ index: 0, number: 1 }
+{ index: 1, number: 2 }
+{ index: 2, number: 3 }
+{ index: 3, number: 4 }
+{ index: 4, number: 5 }
 */
 ```
